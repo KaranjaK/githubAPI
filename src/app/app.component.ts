@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GithubapiService } from './services/githubapi.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'githubrepo';
+  
+  users!: String[];
+
+  constructor(private githubservice:GithubapiService){}
+
+  searchUSer(){
+
+    this.githubservice.searchUser().subscribe((data) =>
+      console.log(data)
+    )
+  }
+
 }
