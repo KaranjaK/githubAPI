@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubapiService } from '../services/githubapi.service';
 
 @Component({
   selector: 'app-search',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  constructor() { }
+  users!: String[];
+
+  constructor(private githubservice: GithubapiService) { }
 
   ngOnInit(): void {
   }
 
+  doUserSearch(term: string){
+    this.githubservice.searchUser(term)
+  }
+  
 }
