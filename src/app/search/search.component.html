@@ -1,19 +1,62 @@
 <div class="container-fluid">
-  <form class="form-inline">
-    <div class="form-fluid">
-      <input
-        type="search"
-        class="form-fluid"
-        placeholder="Enter the GitHub Username"
-        #search
-      />
-    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">GitHub Search</a>
     <button
+      class="navbar-toggler"
       type="button"
-      class="btn btn-success"
-      (click)="doUserSearch()"
+      data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      Click to search
+      <span class="navbar-toggler-icon"></span>
     </button>
-  </form>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#"
+            >Home <span class="sr-only">(current)</span></a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <div>
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search by Username"
+            aria-label="Search"
+          />
+          <button
+            class="btn btn-outline-primary my-2 my-sm-0"
+            type="submit"
+            (click)="doUserSearch()"
+          >
+            Search
+          </button>
+        </div>
+        <div>
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search by Repo Name"
+            aria-label="Search"
+            #search
+          />
+          <button
+            class="btn btn-outline-success my-2 my-sm-0"
+            type="submit"
+            (click)="doRepoSearch()"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </nav>
 </div>
