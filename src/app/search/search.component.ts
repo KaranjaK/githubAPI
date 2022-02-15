@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { profile } from 'console';
 import { GithubapiService } from '../services/githubapi.service';
 
 @Component({
@@ -41,6 +40,10 @@ export class SearchComponent implements OnInit {
     this.githubservice.searchRepo().subscribe(repos => {
       this.repos = repos
     })
+  }
+
+  doRepoSearch(){
+    
   }
 
   ngOnInit(): void {
