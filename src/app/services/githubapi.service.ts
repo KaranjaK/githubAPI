@@ -1,19 +1,24 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient} from '@angular/common/http';
+import { Users } from '../Classes/users';
+import { Repositories } from '../Classes/repositories';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from '../app.component';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubapiService {
 
-  constructor(private http: HttpClient) { }
+  username?: string;
 
-  searchUser(): Observable<any> {
 
-    const link = "https://api.github.com/users"
 
-    return this.http.get <any>(link)
-
+  constructor(private http: HttpClient) {
   }
+
+  searchUser(term: string) {
+  }
+
 }
