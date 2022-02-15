@@ -1,1 +1,19 @@
-<p>search works!</p>
+<div class="container-fluid">
+  <form class="form-inline">
+    <div class="form-fluid">
+      <input
+        type="search"
+        class="form-fluid"
+        placeholder="Enter the GitHub Username"
+        #search
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="doUserSearch(search.value)"
+    >
+      Click to search
+    </button>
+  </form>
+</div>
