@@ -35,7 +35,7 @@ export class SearchComponent implements OnInit {
    doUserSearch() {
     this.githubservice.profileUpdate(this.username)
     this.githubservice.searchUser().subscribe(userData => {
-      this.userData = this.userData
+      this.userData = userData 
     })
     this.githubservice.searchRepo().subscribe(repos => {
       this.repos = repos
@@ -43,7 +43,7 @@ export class SearchComponent implements OnInit {
   }
 
   doRepoSearch(){
-    
+
   }
 
   ngOnInit(): void {
