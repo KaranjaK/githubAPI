@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+// import 'rxjs/add/operator/map'
 
 @Injectable({
   providedIn: 'root'
 })
 export class GithubapiService {
 
-  username: string;
-  clientId = '367fc5193fa0c21f98ab'
-  clientSecret = '567fe7fb66026ad1124c93b18bcf0e34fb74e936'
+  private username: string;
+  private clientId = '367fc5193fa0c21f98ab'
+  private clientSecret = '567fe7fb66026ad1124c93b18bcf0e34fb74e936'
 
 
 
@@ -20,10 +21,10 @@ export class GithubapiService {
     interface apiFeedback {
       login: string
     }
-    return this.http.get('https://api.github.com/users/KaranjaK?access_token=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' + this.username + '?client_id=' + this.clientId + '&client_secret=' + this.clientSecret)
+    return this.http.get('https://api.github.com/users/' + this.username + '?client_Id=' + this.clientId + '&client_Secret=' + this.clientSecret)
   }
   searchRepo() {
-    return this.http.get('https://api.github.com/repositories/' + this.username + '/repos?client_id=' + this.clientId + '&client_secret=' + this.clientSecret)
+    return this.http.get('https://api.github.com/users/' + this.username + '/repos?client_Id=' + this.clientId + '&client_Secret=' + this.clientSecret)
   }
 
   profileUpdate(username: string) {
