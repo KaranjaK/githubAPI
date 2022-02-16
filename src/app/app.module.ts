@@ -6,16 +6,18 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component'
 import { GithubapiService } from './services/githubapi.service'
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [GithubapiService],
   bootstrap: [AppComponent]
