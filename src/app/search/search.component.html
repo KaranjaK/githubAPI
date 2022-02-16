@@ -92,8 +92,9 @@
                 <strong>Bio:</strong> {{ userData.bio }}
               </li>
               <li class="list-group-item">
-                <strong>Member Since:</strong> {{ userData.created_at }}
+                <strong>Member Since:</strong> {{ userData.created_at | dateslice }}
               </li>
+              
             </ul>
           </div>
         </div>
