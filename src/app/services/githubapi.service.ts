@@ -1,10 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Users } from '../Classes/users';
-import { Repositories } from '../Classes/repositories';
-import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from '../app.component';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -25,15 +20,13 @@ export class GithubapiService {
     interface apiFeedback {
       login: string
     }
-    return this.http.get('https://api.github.com/users/' + this.username + '?client_id=' + this.clientId + '&client_secret=' + this.clientSecret)
-      // .pipe(map(res => res.json()))
+    return this.http.get('https://api.github.com/users/KaranjaK?access_token=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' + this.username + '?client_id=' + this.clientId + '&client_secret=' + this.clientSecret)
   }
   searchRepo() {
     return this.http.get('https://api.github.com/repositories/' + this.username + '/repos?client_id=' + this.clientId + '&client_secret=' + this.clientSecret)
-      // .pipe(map(res => res.json()))
   }
 
-  profileUpdate (username: string){
+  profileUpdate(username: string) {
     this.username = username;
   }
 
