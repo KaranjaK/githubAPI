@@ -25,9 +25,11 @@
       <div>
         <input
           class="form-control mr-sm-2"
-          type="search"
+          type="text"
           placeholder="Search by Username"
-          aria-label="Search"
+          [(ngModel)]="username"
+          name="username"
+          (keyup)="doUserSearch()"
         />
       </div>
       <div>
