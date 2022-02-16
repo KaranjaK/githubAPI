@@ -7,3 +7,20 @@
 .btn{
     margin-right: 1rem;
 }
+.panel-heading>h1{
+    font-family: Dancing Script;
+    font-size: 6vw;
+    padding-left: 5rem;
+    
+}
+.image{
+    border-radius: 20rem;
+}
+.panel-title{
+    font-family: Concert One;
+    font-size: 5vw;
+    padding-left: 2rem;
+}
+.panel-body{
+    padding-left: 1rem;
+}
