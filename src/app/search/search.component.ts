@@ -23,6 +23,7 @@ export class SearchComponent implements OnInit {
   };
   repos!: any;
   username!: string;
+  repo!:string;
 
   constructor(private githubservice: GithubapiService) { 
     this.githubservice.searchUser().subscribe(userData => {
@@ -43,7 +44,13 @@ export class SearchComponent implements OnInit {
   }
 
   doRepoSearch(){
-
+    this.githubservice.profileUpdate(this.repo)
+    this.githubservice.searchUser().subscribe(userData => {
+      this.userData = userData 
+    })
+    this.githubservice.searchRepo().subscribe(repos => {
+      this.repos = repos
+    })
   }
 
   ngOnInit(): void {
