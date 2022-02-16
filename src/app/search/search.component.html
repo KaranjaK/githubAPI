@@ -1,62 +1,148 @@
-<div class="container-fluid">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">GitHub Search</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <a class="navbar-brand" href="#">GitHubAPI</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-      </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <div>
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search by Username"
-            aria-label="Search"
-          />
-          <button
-            class="btn btn-outline-primary my-2 my-sm-0"
-            type="submit"
-            (click)="doUserSearch()"
-          >
-            Search
-          </button>
-        </div>
-        <div>
-          <input
-            class="form-control mr-sm-2"
-            type="search"
-            placeholder="Search by Repo Name"
-            aria-label="Search"
-            #search
-          />
-          <button
-            class="btn btn-outline-success my-2 my-sm-0"
-            type="submit"
-            (click)="doRepoSearch()"
-          >
-            Search
-          </button>
-        </div>
-      </form>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Profile<span class="sr-only">(current)</span></a
+        >
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <div>
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search by Username"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-outline-warning my-2 my-sm-0"
+          type="submit"
+          (click)="doUserSearch()"
+        >
+          Search
+        </button>
+      </div>
+      <div>
+        <input
+          class="form-control mr-sm-2"
+          type="search"
+          placeholder="Search by Repo Name"
+          aria-label="Search"
+          #search
+        />
+        <button
+          class="btn btn-outline-success my-2 my-sm-0"
+          type="submit"
+          (click)="doRepoSearch()"
+        >
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</nav>
+
+<div *ngIf="userData">
+  <div style="margin-top: 10%" class="panel panel-default">
+    <div class="panel-heading">
+      <h1>{{ userData.login }}</h1>
+      <span *ngIf="">Works at {{ userData.company }}</span>
+      {{ userData.location }}
     </div>
-  </nav>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-md-4">
+          <img
+            src="{{ userData.avatar_url }}"
+            class="img-thumbnail github-avatar"
+            alt="Profile Image"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="start">
+            <span class="label label-default"
+              >{{ userData.public_repos }} Public Repos</span
+            >
+            <span class="label label-primary"
+              >{{ userData.public_gist }} Public Gist</span
+            >
+            <span class="label label-success"
+              >{{ userData.followers }} Followers</span
+            >
+            <span class="label label-info"
+              >{{ userData.following }} Following</span
+            >
+            <br />
+
+            <ul class="list-group">
+              <li class="list-group-item">
+                <strong>Username:</strong> {{ userData.login }}
+              </li>
+              <li class="list-group-item">
+                <strong>Location:</strong> {{ userData.location }}
+              </li>
+              <li class="list-group-item">
+                <strong>Email:</strong> {{ userData.email }}
+              </li>
+              <li class="list-group-item">
+                <strong>Bio:</strong> {{ userData.bio }}
+              </li>
+              <li class="list-group-item">
+                <strong>Member Since:</strong> {{ userData.created_at }}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Repositories</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div *ngFor="let repo of repos">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <h3>{{ repo.name }}</h3>
+                      <p>{{ repo.description }}</p>
+
+                      <h4>
+                        <a href="{{ repo.html_url }}" target="_blank"
+                          >View on github</a
+                        >
+                      </h4>
+                    </div>
+
+                    <div class="col-md-3">
+                      <span class="label label-default"
+                        >{{ repo.watchers }} Stars
+                      </span>
+                      <span class="label label-primary"
+                        >{{ repo.forks }} Forks
+                      </span>
+                    </div>
+                  </div>
+                  <hr />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
