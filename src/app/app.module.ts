@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { SearchComponent } from './search/search.component'
 import { GithubapiService } from './services/githubapi.service'
 import { FormsModule } from '@angular/forms';
+import { DateslicePipe } from './dateslice.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
+    DateslicePipe,
   ],
   imports: [
     BrowserModule,
