@@ -1,3 +1,4 @@
+<!-- This is the top Navigation Bar -->
 <nav class="navbar navbar-expand-lg navbar-dark">
   <a class="navbar-brand" href="#">GitHubAPI</a>
   <button
@@ -28,13 +29,6 @@
           placeholder="Search by Username"
           aria-label="Search"
         />
-        <button
-          class="btn btn-outline-warning my-2 my-sm-0"
-          type="submit"
-          (click)="doUserSearch()"
-        >
-          Search
-        </button>
       </div>
       <div>
         <input
@@ -44,31 +38,24 @@
           aria-label="Search"
           #search
         />
-        <button
-          class="btn btn-outline-success my-2 my-sm-0"
-          type="submit"
-          (click)="doRepoSearch()"
-        >
-          Search
-        </button>
       </div>
     </form>
   </div>
 </nav>
 
-<div *ngIf="userData">
-  <div style="margin-top: 10%" class="panel panel-default">
+<!-- This is the body of the Page -->
+<div class="container-fluid" *ngIf="userData">
+  <div style="margin-top: 3%" class="panel panel-default">
     <div class="panel-heading">
-      <h1>{{ userData.login }}</h1>
+      <h1 class="text">{{ userData.login }}</h1>
       <span *ngIf="">Works at {{ userData.company }}</span>
-      {{ userData.location }}
     </div>
     <div class="panel-body">
       <div class="row">
         <div class="col-md-4">
           <img
             src="{{ userData.avatar_url }}"
-            class="img-thumbnail github-avatar"
+            class="img-fluid img-thumbnail image"
             alt="Profile Image"
           />
         </div>
@@ -122,7 +109,7 @@
 
                       <h4>
                         <a href="{{ repo.html_url }}" target="_blank"
-                          >View on github</a
+                          ><button class="btn btn-primary">View on github</button></a
                         >
                       </h4>
                     </div>
