@@ -25,7 +25,7 @@
       <div>
         <input
           class="form-control mr-sm-2"
-          type="text"
+          type="search"
           placeholder="Search by Username"
           [(ngModel)]="username"
           name="username"
@@ -37,8 +37,9 @@
           class="form-control mr-sm-2"
           type="search"
           placeholder="Search by Repo Name"
-          aria-label="Search"
-          #search
+          [(ngModel)]="repo"
+          name="repos"
+          (keyup)="doRepoSearch()"
         />
       </div>
     </form>
