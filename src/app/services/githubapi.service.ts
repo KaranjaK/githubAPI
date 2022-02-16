@@ -8,8 +8,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class GithubapiService {
 
   private username: string;
-  private clientId = '367fc5193fa0c21f98ab'
-  private clientSecret = '567fe7fb66026ad1124c93b18bcf0e34fb74e936'
+  private repo!: string;
+  private clientid = '367fc5193fa0c21f98ab'
+  private clientsecret = '567fe7fb66026ad1124c93b18bcf0e34fb74e936'
 
 
 
@@ -21,14 +22,17 @@ export class GithubapiService {
     interface apiFeedback {
       login: string
     }
-    return this.http.get('https://api.github.com/users/' + this.username + '?client_Id=' + this.clientId + '&client_Secret=' + this.clientSecret)
+    return this.http.get('https://api.github.com/users/' + this.username + '?client_id=' + this.clientid + '&client_secret=' + this.clientsecret)
   }
   searchRepo() {
-    return this.http.get('https://api.github.com/users/' + this.username + '/repos?client_Id=' + this.clientId + '&client_Secret=' + this.clientSecret)
+    return this.http.get('https://api.github.com/users/' + this.username + '/repos?client_id=' + this.clientid + '&client_secret=' + this.clientsecret)
   }
 
   profileUpdate(username: string) {
     this.username = username;
+  }
+  repoDisplay(repo: string){
+    this.repo = repo;
   }
 
 }
