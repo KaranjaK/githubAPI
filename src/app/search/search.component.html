@@ -47,7 +47,8 @@
 </nav>
 
 <!-- This is the body of the Page -->
-<div class="container-fluid" *ngIf="userData">
+<!-- This will display based on UserName -->
+<div class="container-fluid">
   <div style="margin-top: 3%" class="panel panel-default">
     <div class="panel-heading">
       <h1 class="text">{{ userData.login }}</h1>
@@ -92,9 +93,9 @@
                 <strong>Bio:</strong> {{ userData.bio }}
               </li>
               <li class="list-group-item">
-                <strong>Member Since:</strong> {{ userData.created_at | dateslice }}
+                <strong>Member Since:</strong>
+                {{ userData.created_at | dateslice }}
               </li>
-              
             </ul>
           </div>
         </div>
@@ -113,7 +114,56 @@
 
                       <h4>
                         <a href="{{ repo.html_url }}" target="_blank"
-                          ><button class="btn btn-primary">View on github</button></a
+                          ><button class="btn btn-primary">
+                            View on github
+                          </button></a
+                        >
+                      </h4>
+                    </div>
+
+                    <div class="col-md-3">
+                      <span class="label label-default"
+                        >{{ repo.watchers }} Stars
+                      </span>
+                      <span class="label label-primary"
+                        >{{ repo.forks }} Forks
+                      </span>
+                    </div>
+                  </div>
+                  <hr />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- This is to display Repo content -->
+<div class="container-fluid" *ngIf="repoData">
+  <div style="margin-top: 3%" class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Repositories</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-12">
+                <div *ngFor="let repo of repos">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <h3>{{ repo.name }}</h3>
+                      <p>{{ repo.description }}</p>
+
+                      <h4>
+                        <a href="{{ repo.html_url }}" target="_blank"
+                          ><button class="btn btn-primary">
+                            View on github
+                          </button></a
                         >
                       </h4>
                     </div>
