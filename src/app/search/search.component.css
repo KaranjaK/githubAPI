@@ -7,13 +7,18 @@
 .btn{
     margin-right: 1rem;
 }
+.badge{
+    margin-right: 1rem;
+}
 .panel-heading>h1{
     font-family: Dancing Script;
     font-size: 6vw;
-    padding-left: 5rem;
+    padding-left: 3rem;
     
 }
 .image{
+    border-color:#f0a04b;
+    border-width: .2rem;
     border-radius: 20rem;
 }
 .panel-title{
