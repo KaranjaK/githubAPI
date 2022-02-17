@@ -14,13 +14,6 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#"
-          >Profile<span class="sr-only">(current)</span></a
-        >
-      </li>
-    </ul>
     <form class="form-inline my-2 my-lg-0">
       <div>
         <input
@@ -48,7 +41,7 @@
 
 <!-- This is the body of the Page -->
 <!-- This will display based on UserName -->
-<div class="container-fluid">
+<div class="container-fluid" *ngIf="!repo">
   <div style="margin-top: 3%" class="panel panel-default">
     <div class="panel-heading">
       <h1 class="text">{{ userData.login }}</h1>
@@ -65,16 +58,16 @@
         </div>
         <div class="col-md-8">
           <div class="start">
-            <span class="label label-default"
+            <span class="badge badge-primary"
               >{{ userData.public_repos }} Public Repos</span
             >
-            <span class="label label-primary"
+            <span class="badge badge-secondary"
               >{{ userData.public_gist }} Public Gist</span
             >
-            <span class="label label-success"
+            <span class="badge badge-success"
               >{{ userData.followers }} Followers</span
             >
-            <span class="label label-info"
+            <span class="badge badge-info"
               >{{ userData.following }} Following</span
             >
             <br />
@@ -142,7 +135,7 @@
 </div>
 
 <!-- This is to display Repo content -->
-<div class="container-fluid" *ngIf="repoData">
+<div class="container-fluid" *ngIf="repo">
   <div style="margin-top: 3%" class="panel panel-default">
     <div class="panel-body">
       <div class="row">
@@ -153,32 +146,29 @@
           <div class="panel-body">
             <div class="row">
               <div class="col-md-12">
-                <div *ngFor="let repo of repos">
-                  <div class="row">
-                    <div class="col-md-9">
-                      <h3>{{ repo.name }}</h3>
-                      <p>{{ repo.description }}</p>
-
-                      <h4>
-                        <a href="{{ repo.html_url }}" target="_blank"
-                          ><button class="btn btn-primary">
-                            View on github
-                          </button></a
-                        >
-                      </h4>
-                    </div>
-
-                    <div class="col-md-3">
-                      <span class="label label-default"
-                        >{{ repo.watchers }} Stars
-                      </span>
-                      <span class="label label-primary"
-                        >{{ repo.forks }} Forks
-                      </span>
-                    </div>
+                <div class="row">
+                  <div class="col-md-9">
+                    <h3>{{ repos.name }}</h3>
+                    <p>{{ repos.description }}</p>
+                    <h4>
+                      <a href="{{ repos.html_url }}" target="_blank"
+                        ><button class="btn btn-primary">
+                          View on github
+                        </button></a
+                      >
+                    </h4>
                   </div>
-                  <hr />
+
+                  <div class="col-md-3">
+                    <span class="label label-default"
+                      >{{ repos.watchers }} Stars
+                    </span>
+                    <span class="label label-primary"
+                      >{{ repos.forks }} Forks
+                    </span>
+                  </div>
                 </div>
+                <hr />
               </div>
             </div>
           </div>
