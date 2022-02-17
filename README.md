@@ -12,13 +12,12 @@ Search by repository name
 * Have an up to date Browser
 # Setup/Installation
 * Open your browser and navigate to your search input
-* Type in or copy the following address in the search bar: 
-* Press search
+* Type in or copy the following address in the search bar: https://karanjak.github.io/githubAPI/
 * To search for a user on Github, type in their username on the 'Search by Username' Input tag
 * To search for a repository on Github, type in the repo name on the 'Search by Repo Name' input tag
 ## Demo
 Upon successfully loading the page, this is what you will diplayed with:
-![alt text]()
+![alt text](https://github.com/KaranjaK/githubAPI/blob/master/src/assets/demo.png)
 ## Known Bugs
 At the moment of this release, there were no known bugs. In the event you come across any, kindly reach ouch to us via the support contact provided below. 
 ## Technologies Used
