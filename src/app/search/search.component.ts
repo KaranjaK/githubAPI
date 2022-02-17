@@ -21,14 +21,9 @@ export class SearchComponent implements OnInit {
     bio: '',
     created_at: ''
   };
-  repoData: any = {
-    name: '',
-    owner: '',
-    description: ''
-  };
   repos!: any;
   username!: string;
-  repo!: string;
+  repo!: any;
 
   constructor(private githubservice: GithubapiService) {
     this.githubservice.searchUser().subscribe(userData => {
@@ -37,21 +32,27 @@ export class SearchComponent implements OnInit {
     this.githubservice.searchRepo().subscribe(repos => {
       this.repos = repos
     })
+    this.githubservice.getRepo().subscribe(repos => {
+      this.repos = repos
+    })
   }
   doUserSearch() {
     this.githubservice.profileUpdate(this.username)
     this.githubservice.searchUser().subscribe(userData => {
       this.userData = userData
+      console.log(userData)
     })
     this.githubservice.searchRepo().subscribe(repos => {
       this.repos = repos
+      console.log(repos)
     })
   }
 
   doRepoSearch() {
     this.githubservice.repoDisplay(this.repo)
-    this.githubservice.getRepo().subscribe(repoData => {
-      this.repoData = repoData
+    this.githubservice.getRepo().subscribe(repos => {
+      this.repos = repos
+      console.log(repos)
     })
 }
 
