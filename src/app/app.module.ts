@@ -8,12 +8,14 @@ import { SearchComponent } from './search/search.component'
 import { GithubapiService } from './services/githubapi.service'
 import { FormsModule } from '@angular/forms';
 import { DateslicePipe } from './dateslice.pipe';
+import { DisplayDirective } from './directives/display.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     DateslicePipe,
+    DisplayDirective,
   ],
   imports: [
     BrowserModule,
