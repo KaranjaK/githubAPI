@@ -27,6 +27,9 @@ export class GithubapiService {
   searchRepo() {
     return this.http.get('https://api.github.com/users/' + this.username + '/repos?client_id=' + this.clientid + '&client_secret=' + this.clientsecret)
   }
+  getRepo(){
+    return this.http.get('https://api.github.com/repositories/' + '/?client_id=' + this.clientid + '&client_secret=' + this.clientsecret)    
+  }
 
   profileUpdate(username: string) {
     this.username = username;
