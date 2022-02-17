@@ -1,10 +1,13 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[appDisplay]'
 })
 export class DisplayDirective {
 
-  constructor() { }
+  
+
+  constructor(private elem: ElementRef) { 
+  }
 
 }
