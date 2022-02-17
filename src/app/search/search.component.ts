@@ -21,39 +21,41 @@ export class SearchComponent implements OnInit {
     bio: '',
     created_at: ''
   };
+  repoData: any = {
+    name: '',
+    owner: '',
+    description: ''
+  };
   repos!: any;
   username!: string;
-  repo!:string;
+  repo!: string;
 
-  constructor(private githubservice: GithubapiService) { 
+  constructor(private githubservice: GithubapiService) {
     this.githubservice.searchUser().subscribe(userData => {
-      this.userData = userData 
+      this.userData = userData
     })
     this.githubservice.searchRepo().subscribe(repos => {
       this.repos = repos
     })
   }
-   doUserSearch() {
+  doUserSearch() {
     this.githubservice.profileUpdate(this.username)
     this.githubservice.searchUser().subscribe(userData => {
-      this.userData = userData 
+      this.userData = userData
     })
     this.githubservice.searchRepo().subscribe(repos => {
       this.repos = repos
     })
   }
 
-  doRepoSearch(){
-    this.githubservice.profileUpdate(this.repo)
-    this.githubservice.searchUser().subscribe(userData => {
-      this.userData = userData 
+  doRepoSearch() {
+    this.githubservice.repoDisplay(this.repo)
+    this.githubservice.getRepo().subscribe(repoData => {
+      this.repoData = repoData
     })
-    this.githubservice.searchRepo().subscribe(repos => {
-      this.repos = repos
-    })
-  }
+}
 
-  ngOnInit(): void {
-  }
+ngOnInit(): void {
+}
 
 }
